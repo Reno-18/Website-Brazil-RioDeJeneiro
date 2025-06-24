@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rio Carnival Spectacular | The Greatest Show on Earth</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FFD700;
+            --secondary: #009C3B;
+            --accent: #002776;
+            --dark: #1A1A1A;
+            --light: #F5F5F5;
+            --samba-red: #D21F1A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('gallery/Drachenwagen-Karneval-Rio-Sambodrom.jpg') no-repeat center center/cover;
+            height: 100vh;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container.scrolled {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 1rem 5%;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+            z-index: 1001;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 80%;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--dark);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            animation: fadeIn 1s ease 0.6s both;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        /* Floating Elements */
+        .floating {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .feather1 {
+            top: 20%;
+            left: 10%;
+            font-size: 3rem;
+            color: var(--primary);
+            animation-delay: 0s;
+        }
+
+        .feather2 {
+            top: 60%;
+            right: 15%;
+            font-size: 2.5rem;
+            color: #FF1493;
+            animation-delay: 1s;
+        }
+
+        .feather3 {
+            bottom: 15%;
+            left: 20%;
+            font-size: 2rem;
+            color: #00BFFF;
+            animation-delay: 2s;
+        }
+
+        /* About Brazil Section */
+        .section {
+            padding: 5rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .about-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .about-card-content {
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .about-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .about-card p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .read-more {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .read-more:hover {
+            color: var(--samba-red);
+        }
+
+        .read-more i {
+            transition: transform 0.3s;
+        }
+
+        .read-more.active i {
+            transform: rotate(90deg);
+        }
+
+        .more-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            padding-top: 0;
+        }
+
+        .more-content.show {
+            max-height: 500px; /* Adjusted for potential longer content */
+            padding-top: 1rem;
+        }
+
+        /* Carnival Section */
+        .carnival-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('gallery/9a44c85a32fb448e8b73c047e75a564ee957c9c3.jpg') no-repeat center center/cover;
+            color: white;
+            position: relative;
+        }
+
+        .carnival-section .section-title h2 {
+            color: var(--primary);
+        }
+
+        .carnival-section .section-title h2::after {
+            background: white;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: white;
+            border: 4px solid var(--primary);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+        }
+
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+
+        .right::after {
+            left: -16px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            color: var(--dark);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .timeline-content h3 {
+            color: var(--samba-red);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Samba Schools Section */
+        .schools-section {
+            background-color: #f9f9f9;
+        }
+
+        .schools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .school-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .school-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .school-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .school-card-content {
+            padding: 1.5rem;
+        }
+
+        .school-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        .school-card p {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .school-logo {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .school-logo img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        /* Tourism Tips Section */
+        .tips-section {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: white;
+        }
+
+        .tips-section .section-title h2 {
+            color: white;
+        }
+
+        .tips-section .section-title h2::after {
+            background: var(--primary);
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .tip-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 2rem;
+            transition: transform 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .tip-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .tip-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .tip-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 5rem 5%;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 250px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            color: white;
+            font-size: 2rem;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 5rem 10%;
+        }
+
+        .newsletter-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-section p {
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            background: var(--primary);
+            color: var(--dark);
+            border: none;
+            padding: 0 2rem;
+            border-radius: 0 50px 50px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: #ffcc00;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: white;
+            padding: 3rem 10% 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            overflow: auto;
+        }
+
+        .modal-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            padding: 2rem;
+        }
+
+        .modal-img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--primary);
+        }
+
+        /* Team Section */
+        .team-section {
+            background-color: var(--light);
+            padding: 5rem 10%;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-card .team-photo { /* Specific style for team photos */
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 4px solid var(--primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        .team-card p {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .team-social a {
+            color: var(--accent);
+            font-size: 1.2rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .team-social a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem 5%;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: right 0.5s;
+                z-index: 999;
+            }
+
+            nav ul.active {
+                right: 0;
+            }
+
+            nav ul li {
+                margin: 1.5rem 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-container::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+
+            .left::after, .right::after {
+                left: 15px;
+            }
+
+            .right {
+                left: 0%;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input {
+                border-radius: 50px;
+                margin-bottom: 1rem;
+            }
+
+            .newsletter-form button {
+                border-radius: 50px;
+                padding: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .section {
+                padding: 3rem 5%;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">Rio<span>Carnival</span></div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#about">About Brazil</a></li>
+                    <li><a href="#carnival">The Carnival</a></li>
+                    <li><a href="#schools">Samba Schools</a></li>
+                    <li><a href="#tips">Travel Tips</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#team">Our Team</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+
+        <div class="hero-content">
+            <h1>The Greatest Show on Earth</h1>
+            <p>Experience the magic, rhythm, and colors of Rio de Janeiro Carnival</p>
+            <a href="#carnival" class="btn">Explore Carnival</a>
+            <a href="#tips" class="btn btn-outline">Travel Guide</a>
+        </div>
+
+        <div class="floating feather1">
+            <i class="fas fa-feather-alt"></i>
+        </div>
+        <div class="floating feather2">
+            <i class="fas fa-feather"></i>
+        </div>
+        <div class="floating feather3">
+            <i class="fas fa-feather-alt"></i>
+        </div>
+    </header>
+
+    <section class="section" id="about">
+        <div class="section-title">
+            <h2>About Brazil</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-card">
+                <img src="about/shutterstock_331873283-1024x683.jpg" alt="Amazon Rainforest">
+                <div class="about-card-content">
+                    <h3>Geography & Nature</h3>
+                    <p>Brazil spans over 8.5 million square kilometers and is home to the Amazon Rainforest, Pantanal wetlands, and Iguazu Falls.</p>
+                    <div class="more-content" id="geo-content">
+                        <p><strong>The Amazon Rainforest</strong> is the largest tropical rainforest in the world, harboring over 10% of known species. It produces 20% of the world's oxygen and is often called "the lungs of the Earth."</p>
+                        <p><strong>Pantanal</strong> is the world's largest tropical wetland area, spanning approximately 195,000 square kilometers. It's one of the most biodiverse places on Earth, home to jaguars, capybaras, and hundreds of bird species.</p>
+                        <p><strong>Iguazu Falls</strong> is one of the largest and most majestic waterfalls in the world, with 275 individual drops spanning nearly 3 kilometers. It's taller than Niagara Falls and twice as wide.</p>
+                    </div>
+                    <span class="read-more" onclick="toggleReadMore('geo-content', this)">Read More <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+            <div class="about-card">
+                <img src="about/brazilian-fans-cheer.jpg" alt="Brazilian Culture">
+                <div class="about-card-content">
+                    <h3>People & Culture</h3>
+                    <p>Brazil's population exceeds 215 million people with a blend of indigenous, European, African, and Asian heritage.</p>
+                    <div class="more-content" id="culture-content">
+                        <p>Brazil's culture is a vibrant mix of influences from indigenous peoples, Portuguese colonizers, African slaves, and later immigrants from Italy, Germany, Spain, Japan, and the Middle East.</p>
+                        <p><strong>Official Language:</strong> Portuguese (the only Portuguese-speaking country in the Americas)</p>
+                        <p><strong>Major Religions:</strong> Roman Catholicism (65%), Protestantism (22%), Afro-Brazilian religions like Candomblé and Umbanda (2%)</p>
+                        <p><strong>Traditional Music:</strong> Samba, Bossa Nova, Forró, Funk Carioca, Axé, and MPB (Música Popular Brasileira)</p>
+                        <p>Brazil is also famous for its football (soccer) culture, with legendary players like Pelé, Ronaldo, and Neymar hailing from the country.</p>
+                    </div>
+                    <span class="read-more" onclick="toggleReadMore('culture-content', this)">Read More <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+            <div class="about-card">
+                <img src="about/music and dance.jpg" alt="Rio Carnival">
+                <div class="about-card-content">
+                    <h3>Music & Dance</h3>
+                    <p>Brazil is the birthplace of samba, bossa nova, forró, and funk carioca, with Carnival being its most famous celebration.</p>
+                    <div class="more-content" id="music-content">
+                        <p><strong>Samba:</strong> Originating from African rhythms brought by slaves, samba became Brazil's national music and the heartbeat of Carnival. The most famous samba school is Mangueira.</p>
+                        <p><strong>Bossa Nova:</strong> A sophisticated style blending samba and jazz, made famous worldwide by songs like "The Girl from Ipanema" by Antônio Carlos Jobim and Vinícius de Moraes.</p>
+                        <p><strong>Forró:</strong> A popular dance music from the Northeast, traditionally played with accordion, triangle, and zabumba drum.</p>
+                        <p><strong>Funk Carioca:</strong> A high-energy dance music from Rio's favelas, mixing Miami bass, African rhythms, and Brazilian influences.</p>
+                        <p>Brazil also has rich folk traditions like capoeira (a martial art that combines dance and music) and frevo (a fast-paced Carnival dance from Recife).</p>
+                    </div>
+                    <span class="read-more" onclick="toggleReadMore('music-content', this)">Read More <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section carnival-section" id="carnival">
+        <div class="section-title">
+            <h2>Rio Carnival</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-container left">
+                <div class="timeline-content">
+                    <h3>Origins</h3>
+                    <p>The Rio Carnival has its roots in the Portuguese "Entrudo" celebration and African traditions brought by enslaved people. It evolved into its modern form in the early 20th century.</p>
+                    <div class="more-content" id="origins-content">
+                        <p>The Portuguese Entrudo was a festival where people would play pranks on each other by throwing water, flour, and food. When African slaves were brought to Brazil, they incorporated their own musical and dance traditions.</p>
+                        <p>In the late 19th century, elite Rio residents began holding masquerade balls inspired by Parisian Carnival celebrations. Meanwhile, the poor communities developed their own street celebrations with African rhythms.</p>
+                        <p>The first samba school, Deixa Falar, was founded in 1928 in the Estácio neighborhood. This marked the beginning of the organized samba school competitions that define modern Carnival.</p>
+                    </div>
+                    <span class="read-more" onclick="toggleReadMore('origins-content', this)">Read More <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+            <div class="timeline-container right">
+                <div class="timeline-content">
+                    <h3>Sambadrome</h3>
+                    <p>The Sambadrome Marquês de Sapucaí was designed by Oscar Niemeyer and opened in 1984. It's where the main parades take place, with capacity for 90,000 spectators.</p>
+                    <div class="more-content" id="sambadrome-content">
+                        <p>The Sambadrome is a 700-meter-long parade avenue with grandstands on both sides. It was designed by Brazil's most famous architect, Oscar Niemeyer, to give Carnival a permanent home.</p>
+                        <p>There are different ticket categories: grandstand seats (arquibancadas), box seats (frisas), and luxury suites (camarotes). Prices range from $50 to $1000+ depending on location and amenities.</p>
+                        <p>The parade starts at 9pm and can last until 6am, with each samba school having between 65-82 minutes to perform. The judging occurs at specific points along the avenue.</p>
+                        <p>In 2023, the Sambadrome hosted over 500,000 spectators during the two nights of parades, with millions more watching on TV worldwide.</p>
+                    </div>
+                    <span class="read-more" onclick="toggleReadMore('sambadrome-content', this)">Read More <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+            <div class="timeline-container left">
+                <div class="timeline-content">
+                    <h3>Modern Carnival</h3>
+                    <p>Today, the Carnival attracts over 2 million people per day. The 2025 Carnival will be held March 1-4, with parades on March 2-3.</p>
+                    <div class="more-content" id="modern-content">
+                        <p>The Carnival officially begins when the Mayor of Rio hands the keys of the city to King Momo, the symbolic "monarch" of Carnival. This tradition dates back to 1933.</p>
+                        <p>The Special Group parades (Grupo Especial) feature the top 12 samba schools competing for the championship. Each school has 3,000-5,000 participants including dancers, musicians, and float operators.</p>
+                        <p>Themes (enredos) often address social issues, Brazilian history, or global topics. Recent themes have included climate change, indigenous rights, and African heritage.</p>
+                        <p>The Carnival generates about $1 billion in economic activity for Rio de Janeiro, with hotels operating at 95% capacity during the event.</p>
+                    </div>
+                    <span class="read-more" onclick="toggleReadMore('modern-content', this)">Read More <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+            <div class="timeline-container right">
+                <div class="timeline-content">
+                    <h3>Economic Impact</h3>
+                    <p>In 2023, Rio's tourism revenue from Carnival exceeded $800 million, with over 5 million attendees and thousands of temporary jobs created.</p>
+                    <div class="more-content" id="economic-content">
+                        <p>The Carnival creates approximately 250,000 temporary jobs each year, including costume makers, security personnel, food vendors, and tourism workers.</p>
+                        <p>Top samba schools spend between $2-4 million each on their Carnival presentations, with funds coming from sponsors, government support, and community fundraising.</p>
+                        <p>The event boosts Brazil's international profile significantly, with media coverage reaching over 1 billion people worldwide through TV, online, and social media.</p>
+                        <p>Beyond Rio, Carnival celebrations throughout Brazil contribute an additional $500 million to the national economy, with major celebrations in Salvador, Recife, and São Paulo.</p>
+                    </div>
+                    <span class="read-more" onclick="toggleReadMore('economic-content', this)">Read More <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section schools-section" id="schools">
+        <div class="section-title">
+            <h2>Samba Schools</h2>
+        </div>
+        <div class="schools-grid">
+            <div class="school-card">
+                <img src="sambaschool/Mangueira.jpg" alt="Mangueira">
+                <div class="school-logo">
+                    <img src="sambaschool/mangueira-logo.png" alt="Mangueira Logo">
+                </div>
+                <div class="school-card-content">
+                    <h3>Mangueira</h3>
+                    <p>One of the most traditional and popular samba schools, known for its pink and green colors and strong community ties.</p>
+                    <div class="more-content" id="mangueira-content">
+                        <p>Founded in 1928, Mangueira is one of the oldest samba schools and has won the Carnival championship 20 times (as of 2023).</p>
+                        <p>The school is based in the Mangueira favela near Rio's Maracanã stadium. Its colors (pink and green) were chosen because they were the only fabrics available when the school was founded.</p>
+                        <p>Mangueira is known for its progressive themes, having celebrated Brazil's indigenous peoples (2016), black resistance (2019), and women's rights (2020).</p>
+                        <p>Famous alumni include samba composer Cartola and singer Alcione. The school's anthem is one of the most beloved in Carnival history.</p>
+                    </div>
+                    <span class="read-more" onclick="toggleReadMore('mangueira-content', this)">Read More <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+            <div class="school-card">
+                <img src="sambaschool/Beija-Flor.jpg" alt="Beija-Flor">
+                <div class="school-logo">
+                    <img src="sambaschool/Beija-Flor logo.jpg" alt="Beija-Flor Logo">
+                </div>
+                <div class="school-card-content">
+                    <h3>Beija-Flor</h3>
+                    <p>Known for its extravagant costumes and floats, Beija-Flor has won numerous championships with its spectacular performances.</p>
+                    <div class="more-content" id="beijaflor-content">
+                        <p>Founded in 1948 in Nilópolis, a suburb of Rio, Beija-Flor ("Hummingbird") has won 14 Carnival championships (as of 2023).</p>
+                        <p>The school is famous for its opulent floats and costumes, often featuring gold, silver, and elaborate feather work. Their productions are among the most expensive in Carnival.</p>
+                        <p>Beija-Flor frequently addresses political themes, having presented enredos about corruption (2003), African heritage (2007), and Brazilian social movements (2018).</p>
+                        <p>The school has a reputation for technical perfection, with precise choreography and flawless execution of its samba songs.</p>
+                    </div>
+                    <span class="read-more" onclick="toggleReadMore('beijaflor-content', this)">Read More <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+            <div class="school-card">
+                <img src="sambaschool/Salgueiro.jpg" alt="Salgueiro">
+                <div class="school-logo">
+                    <img src="sambaschool/Crest_of_Acadêmicos_do_Salgueiro.png" alt="Salgueiro Logo">
+                </div>
+                <div class="school-card-content">
+                    <h3>Salgueiro</h3>
+                    <p>Famous for its innovative themes and bold artistic choices, Salgueiro is known as the "school that revolutionized Carnival."</p>
+                    <div class="more-content" id="salgueiro-content">
+                        <p>Founded in 1953 in the Salgueiro favela, the school has won 9 Carnival championships (as of 2023).</p>
+                        <p>Salgueiro revolutionized Carnival in the 1950s by introducing more elaborate costumes and floats, moving away from the simpler presentations of earlier years.</p>
+                        <p>The school is known for its red and white colors and for being the first to feature a woman as its drum queen (rainha de bateria) in the 1960s.</p>
+                        <p>Salgueiro's 1960 presentation about Chica da Silva, an 18th-century Afro-Brazilian woman who rose from slavery to nobility, is considered a landmark in Carnival history.</p>
+                    </div>
+                    <span class="read-more" onclick="toggleReadMore('salgueiro-content', this)">Read More <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+            <div class="school-card">
+                <img src="sambaschool/Portela.jpg" alt="Portela">
+                <div class="school-logo">
+                    <img src="sambaschool/Portela logo.jpg" alt="Portela Logo">
+                </div>
+                <div class="school-card-content">
+                    <h3>Portela</h3>
+                    <p>The most awarded samba school in Rio's Carnival history, known for its blue and white colors and traditional samba style.</p>
+                    <div class="more-content" id="portela-content">
+                        <p>Founded in 1923 in the Madureira neighborhood, Portela has won 22 Carnival championships (as of 2023), more than any other school.</p>
+                        <p>The school's symbol is an eagle, representing freedom and strength. Its colors are blue and white, inspired by the colors of Madureira's church.</p>
+                        <p>Portela is known for preserving traditional samba styles while also innovating. Many of Brazil's greatest samba composers have been associated with the school.</p>
+                        <p>Despite its success, Portela has faced financial difficulties in recent years, showing how even the most prestigious schools struggle with Carnival's rising costs.</p>
+                    </div>
+                    <span class="read-more" onclick="toggleReadMore('portela-content', this)">Read More <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section tips-section" id="tips">
+        <div class="section-title">
+            <h2>Tourism Tips</h2>
+        </div>
+        <div class="tips-grid">
+            <div class="tip-card">
+                <i class="fas fa-calendar-check"></i>
+                <h3>Book Early</h3>
+                <p>Flights and hotels fill up quickly for Carnival. Book at least 6-9 months in advance for the best options and prices.</p>
+                <div class="more-content" id="book-content">
+                    <p>Accommodation prices can triple during Carnival week. Consider staying in neighborhoods like Copacabana, Ipanema, or Leblon for easy access to events.</p>
+                    <p>If hotels are booked, look for Airbnb options or hostels. Some samba schools offer packages that include parade participation and accommodation.</p>
+                    <p>International flights to Rio should be booked as early as possible, especially from Europe and North America where demand is high.</p>
+                </div>
+                <span class="read-more" onclick="toggleReadMore('book-content', this)">Read More <i class="fas fa-arrow-right"></i></span>
+            </div>
+            <div class="tip-card">
+                <i class="fas fa-ticket-alt"></i>
+                <h3>Get Tickets</h3>
+                <p>Sambadrome tickets sell out fast. Purchase through official vendors or consider joining a samba school's parade.</p>
+                <div class="more-content" id="tickets-content">
+                    <p>Sambadrome tickets are sold in sectors with different price ranges. Sector 9 is popular with tourists for its good views and lively atmosphere.</p>
+                    <p>For a unique experience, consider buying a costume and parading with a samba school. Schools like Mangueira and Salgueiro offer tourist packages.</p>
+                    <p>Street parties (blocos) are free, but some organized blocos sell tickets for VIP areas with better facilities.</p>
+                </div>
+                <span class="read-more" onclick="toggleReadMore('tickets-content', this)">Read More <i class="fas fa-arrow-right"></i></span>
+            </div>
+            <div class="tip-card">
+                <i class="fas fa-map-marked-alt"></i>
+                <h3>Explore Safely</h3>
+                <p>Stick to well-known areas, avoid isolated spots at night, and keep valuables secure. Consider guided tours for safety.</p>
+                <div class="more-content" id="safety-content">
+                    <p>During Carnival, pickpocketing can be common in crowded areas. Use money belts or hidden pouches for important documents and cash.</p>
+                    <p>Use registered taxis or ride-sharing apps rather than hailing cabs on the street. Avoid flashing expensive jewelry or electronics.</p>
+                    <p>Popular safe areas for tourists include Leblon, Ipanema, and the South Zone beaches. Some favelas have become safer with police pacification programs.</p>
+                </div>
+                <span class="read-more" onclick="toggleReadMore('safety-content', this)">Read More <i class="fas fa-arrow-right"></i></span>
+            </div>
+            <div class="tip-card">
+                <i class="fas fa-tshirt"></i>
+                <h3>Dress Appropriately</h3>
+                <p>Wear comfortable shoes and light clothing. Consider buying or renting a costume to fully immerse in the experience.</p>
+                <div class="more-content" id="dress-content">
+                    <p>Rio is very hot in February/March. Light, breathable fabrics are essential. Many Brazilians wear shorts and flip-flops (Havaianas) during Carnival.</p>
+                    <p>For blocos, many people wear costumes or themed outfits. Stores throughout Rio sell Carnival accessories like masks, hats, and glitter.</p>
+                    <p>If parading with a samba school, you'll need to purchase their specific costume. These can range from $200-$1000 depending on the school and your role.</p>
+                </div>
+                <span class="read-more" onclick="toggleReadMore('dress-content', this)">Read More <i class="fas fa-arrow-right"></i></span>
+            </div>
+            <div class="tip-card">
+                <i class="fas fa-money-bill-wave"></i>
+                <h3>Budget Wisely</h3>
+                <p>Carnival can be expensive. Set aside funds for tickets, costumes, food, and transportation to enjoy without stress.</p>
+                <div class="more-content" id="budget-content">
+                    <p>A basic Carnival budget for one person might include: Sambadrome ticket ($100-$500), costume ($200-$1000), accommodation ($100-$500/night), food/drinks ($50/day).</p>
+                    <p>Many restaurants offer fixed-price menus during Carnival. Street food is delicious and affordable - try acarajé, pão de queijo, or grilled meats.</p>
+                    <p>ATMs can run out of cash during Carnival. Withdraw money in advance and keep it in a safe place.</p>
+                </div>
+                <span class="read-more" onclick="toggleReadMore('budget-content', this)">Read More <i class="fas fa-arrow-right"></i></span>
+            </div>
+            <div class="tip-card">
+                <i class="fas fa-heart"></i>
+                <h3>Respect the Culture</h3>
+                <p>Carnival is more than a party - it's a cultural expression with deep roots in Brazilian history and Afro-Brazilian traditions.</p>
+                <div class="more-content" id="culture-tip-content">
+                    <p>Samba has its roots in African religious ceremonies and was once banned in Brazil. Respect its cultural significance beyond just the music.</p>
+                    <p>Many Carnival traditions come from Candomblé, an Afro-Brazilian religion. Avoid appropriating sacred symbols without understanding their meaning.</p>
+                    <p>Learn some basic Portuguese phrases and samba terms. Brazilians appreciate when visitors make an effort to understand their culture.</p>
+                </div>
+                <span class="read-more" onclick="toggleReadMore('culture-tip-content', this)">Read More <i class="fas fa-arrow-right"></i></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section" id="gallery">
+        <div class="section-title">
+            <h2>Carnival Gallery</h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openModal('gallery/Carnival Costume 5.jpg')">
+                <img src="gallery/Carnival Costume 5.jpg" alt="Carnival Costumes">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openModal('gallery/Samba Dancers.jpg')">
+                <img src="gallery/Samba Dancers.jpg" alt="Samba Dancers">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openModal('gallery/Floats.jpg')">
+                <img src="gallery/Floats.jpg" alt="Carnival Float">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openModal('gallery/samba school.jpg')">
+                <img src="gallery/samba school.jpg" alt="Samba School">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openModal('gallery/Street Party.jpg')">
+                <img src="gallery/Street Party.jpg" alt="Carnival Crowd">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openModal('gallery/Rio de Janeiro.jpg')">
+                <img src="gallery/Rio de Janeiro.jpg" alt="Feathered Costume">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section team-section" id="team">
+        <div class="section-title">
+            <h2>Our Team</h2>
+        </div>
+        <div class="team-grid">
+            <div class="team-card">
+                <img src="our team/reno.jpeg" alt="Reno Putra Wiradana" class="team-photo">
+                <h3>Reno Putra Wiradana</h3>
+                <p>2302310057</p>
+                <div class="team-social">
+                    <a href="#" aria-label="Reno's Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Reno's LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Reno's GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="team-card">
+                <img src="our team/yayan.jpeg" alt="Febriyanto" class="team-photo">
+                <h3>Febriyanto</h3>
+                <p>2302310071</p>
+                <div class="team-social">
+                    <a href="#" aria-label="Febriyanto's Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Febriyanto's LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Febriyanto's GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="team-card">
+                <img src="our team/wahyu.jpg" alt="Wahyu Rosiqin" class="team-photo">
+                <h3>Wahyu Rosiqin</h3>
+                <p>2302310063</p>
+                <div class="team-social">
+                    <a href="#" aria-label="Wahyu's Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Wahyu's LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Wahyu's GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="team-card">
+                <img src="our team/anton wahyudi.jpeg" alt="Anton Wahyudi" class="team-photo">
+                <h3>Anton Wahyudi</h3>
+                <p>2302310094</p>
+                <div class="team-social">
+                    <a href="#" aria-label="Anton's Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Anton's LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Anton's GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter-section">
+        <h2>Stay Updated on Carnival 2025</h2>
+        <p>Subscribe to our newsletter for the latest news, ticket information, and travel tips for Rio Carnival 2025.</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Rio Carnival</h3>
+                <p>The world's most famous festival, celebrating Brazilian culture through music, dance, and spectacular parades.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#about">About Brazil</a></li>
+                    <li><a href="#carnival">The Carnival</a></li>
+                    <li><a href="#schools">Samba Schools</a></li>
+                    <li><a href="#tips">Travel Tips</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#team">Our Team</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="https://www.rio-carnival.net/" target="_blank">Official Carnival Guide</a></li>
+                    <li><a href="https://liesa.globo.com/" target="_blank">Samba School League</a></li>
+                    <li><a href="http://visit.rio/en/" target="_blank">Visit Rio Tourism</a></li>
+                    <li><a href="https://www.gov.br/" target="_blank">Brazilian Government</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Rio de Janeiro, Brazil</li>
+                    <li><i class="fas fa-phone"></i> +55 21 1234-5678</li>
+                    <li><i class="fas fa-envelope"></i> info@riocarnival.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Rio Carnival Spectacular. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="modal" id="imageModal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img src="" alt="" class="modal-img" id="modalImage">
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav-container');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Image Modal
+        function openModal(imgSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = "flex";
+            modalImg.src = imgSrc;
+            document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; // Allow scrolling when modal is closed
+        }
+
+        // Close modal when clicking outside the image
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('imageModal');
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Read More functionality
+        function toggleReadMore(contentId, button) {
+            const content = document.getElementById(contentId);
+            button.classList.toggle('active');
+            content.classList.toggle('show');
+            
+            // Scroll to the expanded content
+            // This behavior is more useful on mobile for "Read More" sections
+            if (content.classList.contains('show')) {
+                content.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        // Animate elements when scrolling (improved for mobile performance if many elements)
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.about-card, .timeline-content, .school-card, .tip-card, .gallery-item, .team-card');
+            
+            // Using Intersection Observer for better performance than scroll event listener
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target); // Stop observing once animated
+                    }
+                });
+            }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+            
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        };
+
+        // Set initial state for animated elements
+        document.querySelectorAll('.about-card, .timeline-content, .school-card, .tip-card, .gallery-item, .team-card').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+
+        // Use a single initial call for animations, IntersectionObserver handles the rest
+        window.addEventListener('load', animateOnScroll);
+
+        // Floating elements animation
+        const floatingElements = document.querySelectorAll('.floating');
+        floatingElements.forEach((el, index) => {
+            el.style.animationDelay = `${index * 2}s`;
+        });
+
+        // Newsletter form submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            alert(`Thank you for subscribing with ${email}! We'll keep you updated on Carnival 2025.`);
+            this.reset();
+        });
+    </script>
+</body>
+</html>
